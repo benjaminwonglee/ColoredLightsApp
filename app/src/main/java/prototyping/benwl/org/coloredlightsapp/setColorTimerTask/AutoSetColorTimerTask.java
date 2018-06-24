@@ -1,5 +1,6 @@
 package prototyping.benwl.org.coloredlightsapp.setColorTimerTask;
 
+import android.graphics.Color;
 import android.view.View;
 
 public class AutoSetColorTimerTask extends SetColorTimerTask {
@@ -10,6 +11,7 @@ public class AutoSetColorTimerTask extends SetColorTimerTask {
 
     @Override
     public void run() {
+
         switch (iColor) {
             case 0:
                 iRed += colorIncrement;
@@ -52,25 +54,17 @@ public class AutoSetColorTimerTask extends SetColorTimerTask {
                 resetColorValues();
                 break;
         }
-        handler.obtainMessage(1).sendToTarget();
+
+        wholeScreen.setBackgroundColor(Color.rgb(iRed, iGreen, iBlue));
     }
 
     @Override
-    public boolean checkWithinThreshold(int color) {
-
-        // Check upper color bound
-        // if (color > colorThreshold) {
-        //     resetColorValues();
-        //     iColor++;
-        //     return false;
-        // }
+    public void checkWithinThreshold(int color) {
 
         // Check lower color bound
         if (color < 0) {
             resetColorValues();
             iColor++;
-            return false;
         }
-        return true;
     }
 }

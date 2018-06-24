@@ -17,15 +17,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Timer timer = rescheduleTimer();
-        declareManualButtonAction(timer);
+        rescheduleTimer();
+        declareManualButtonAction();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        //rescheduleTimer();
     }
 
     public Timer rescheduleTimer() {
@@ -37,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         return timer;
     }
 
-    private void declareManualButtonAction(final Timer timer) {
+    private void declareManualButtonAction() {
 
-        Button manualButton = (Button) findViewById(R.id.buttonManual);
+        Button manualButton = findViewById(R.id.buttonManual);
         manualButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

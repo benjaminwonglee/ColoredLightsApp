@@ -14,21 +14,19 @@ public class RandomSetColorTimerTask extends SetColorTimerTask {
     }
 
     @Override
-    public boolean checkWithinThreshold(int color) {
+    public void checkWithinThreshold(int color) {
 
         // Check upper color bound
         if (color > colorThreshold) {
             resetColorValues();
             iColor++;
-            return false;
+            return;
         }
 
         // Check lower color bound
         if (color < 0) {
             resetColorValues();
             iColor++;
-            return false;
         }
-        return true;
     }
 }
