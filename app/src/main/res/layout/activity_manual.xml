@@ -7,7 +7,7 @@
     tools:context="prototyping.benwl.org.coloredlightsapp.ManualActivity">
 
     <View
-        android:id="@+id/wholeScreenViewAuto"
+        android:id="@+id/wholeScreenViewManual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="0dp"
@@ -42,7 +42,6 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="#ffffff"
         android:text="&lt;"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +57,6 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:background="#ffffff"
         android:text="&gt;"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

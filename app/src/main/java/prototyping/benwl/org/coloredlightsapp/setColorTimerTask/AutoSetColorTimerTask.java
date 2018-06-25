@@ -58,7 +58,11 @@ public class AutoSetColorTimerTask extends SetColorTimerTask {
         wholeScreen.setBackgroundColor(Color.rgb(iRed, iGreen, iBlue));
     }
 
-    @Override
+    /**
+     * Checks lower bound of color value is > 0
+     *
+     * @param color The color value of a single red, green, or blue in a color.
+     */
     public void checkWithinThreshold(int color) {
 
         // Check lower color bound

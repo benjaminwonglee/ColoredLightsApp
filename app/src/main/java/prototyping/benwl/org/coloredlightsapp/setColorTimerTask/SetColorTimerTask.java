@@ -31,13 +31,6 @@ public abstract class SetColorTimerTask extends TimerTask {
     @Override
     public abstract void run();
 
-    /**
-     * True if within the threshold
-     *
-     * @param color The color RGB integer level to check
-     */
-    public abstract void checkWithinThreshold(int color);
-
     void resetColorValues() {
 
         iRed = initialColor;

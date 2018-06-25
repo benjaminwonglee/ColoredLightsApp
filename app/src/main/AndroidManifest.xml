@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name="prototyping.benwl.org.coloredlightsapp.ManualActivity"></activity>
+        <activity android:name="prototyping.benwl.org.coloredlightsapp.AutoRandomActivity"></activity>
     </application>
 
 </manifest>

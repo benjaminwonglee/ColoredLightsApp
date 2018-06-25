@@ -1,16 +1,17 @@
 package prototyping.benwl.org.coloredlightsapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.Timer;
 
 import prototyping.benwl.org.coloredlightsapp.setColorTimerTask.AutoSetColorTimerTask;
+import prototyping.benwl.org.coloredlightsapp.setColorTimerTask.RandomSetColorTimerTask;
 
-public class MainActivity extends AppCompatActivity {
+public class AutoRandomActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         rescheduleTimer();
-        declareModeChangeButtonAction();
+        declareManualButtonAction();
     }
 
     @Override
@@ -30,19 +31,19 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         View wholeScreen = findViewById(R.id.wholeScreenViewAuto);
-        AutoSetColorTimerTask timerTask = new AutoSetColorTimerTask(wholeScreen);
+        RandomSetColorTimerTask timerTask = new RandomSetColorTimerTask(wholeScreen);
         timer.schedule(timerTask, 0, 200);
         return timer;
     }
 
-    private void declareModeChangeButtonAction() {
+    private void declareManualButtonAction() {
 
         Button manualButton = findViewById(R.id.buttonManual);
         manualButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AutoRandomActivity.class));
+                startActivity(new Intent(AutoRandomActivity.this, ManualActivity.class));
                 finish();
             }
         });
