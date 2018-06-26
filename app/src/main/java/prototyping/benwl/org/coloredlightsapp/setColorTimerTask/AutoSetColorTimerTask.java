@@ -1,11 +1,10 @@
 package prototyping.benwl.org.coloredlightsapp.setColorTimerTask;
 
-import android.graphics.Color;
 import android.view.View;
 
 public class AutoSetColorTimerTask extends SetColorTimerTask {
 
-    public AutoSetColorTimerTask(View wholeScreen) {
+    public AutoSetColorTimerTask(final View wholeScreen) {
         super(wholeScreen);
     }
 
@@ -55,7 +54,7 @@ public class AutoSetColorTimerTask extends SetColorTimerTask {
                 break;
         }
 
-        wholeScreen.setBackgroundColor(Color.rgb(iRed, iGreen, iBlue));
+        handler.obtainMessage(1).sendToTarget();
     }
 
     /**
@@ -63,7 +62,7 @@ public class AutoSetColorTimerTask extends SetColorTimerTask {
      *
      * @param color The color value of a single red, green, or blue in a color.
      */
-    public void checkWithinThreshold(int color) {
+    private void checkWithinThreshold(int color) {
 
         // Check lower color bound
         if (color < 0) {

@@ -10,7 +10,6 @@ public class ColorChooser {
 
         int currentColor;
         currentColorNumber += direction;
-        System.out.println(currentColorNumber);
         switch (currentColorNumber) {
             case -1:
                 currentColorNumber = 6;

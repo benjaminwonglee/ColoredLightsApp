@@ -1,14 +1,12 @@
 package prototyping.benwl.org.coloredlightsapp.setColorTimerTask;
 
-import android.graphics.Color;
 import android.view.View;
 
 public class RandomSetColorTimerTask extends SetColorTimerTask {
 
     private int tick = 0;
-    private int incrementValue = 3;
 
-    public RandomSetColorTimerTask(View wholeScreen) {
+    public RandomSetColorTimerTask(final View wholeScreen) {
         super(wholeScreen);
     }
 
@@ -28,13 +26,13 @@ public class RandomSetColorTimerTask extends SetColorTimerTask {
             tick = 0;
         } else {
             if (iRed < colorThreshold && iGreen < colorThreshold && iBlue < colorThreshold) {
+                int incrementValue = 3;
                 iRed += incrementValue;
                 iGreen += incrementValue;
                 iBlue += incrementValue;
             }
-            System.out.printf("Red: %d\nGreen: %d\nBlue: %d\n\n", iRed, iGreen, iBlue);
         }
 
-        wholeScreen.setBackgroundColor(Color.rgb(iRed, iGreen, iBlue));
+        handler.obtainMessage(1).sendToTarget();
     }
 }

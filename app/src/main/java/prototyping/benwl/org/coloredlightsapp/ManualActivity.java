@@ -66,9 +66,8 @@ public class ManualActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-                startActivity(new Intent(ManualActivity.this, MainActivity.class));
                 finish();
+                startActivity(new Intent(ManualActivity.this, MainActivity.class));
             }
         });
     }

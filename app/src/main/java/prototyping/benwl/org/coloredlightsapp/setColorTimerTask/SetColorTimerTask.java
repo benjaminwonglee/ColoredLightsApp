@@ -1,13 +1,23 @@
 package prototyping.benwl.org.coloredlightsapp.setColorTimerTask;
 
+import android.graphics.Color;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.view.View;
 
 import java.util.TimerTask;
 
 public abstract class SetColorTimerTask extends TimerTask {
 
-    // The view to update
-    final View wholeScreen;
+    // The view and handler to handle view updates
+    private final View wholeScreen;
+    Handler handler = new Handler(Looper.getMainLooper()) {
+        public void handleMessage(Message msg) {
+            wholeScreen.setBackgroundColor(Color.rgb(iRed, iGreen, iBlue));
+            wholeScreen.invalidate();
+        }
+    };
 
     // Color limits
     private final int initialColor = 255;
@@ -23,8 +33,7 @@ public abstract class SetColorTimerTask extends TimerTask {
     // Color choice setting integer
     int iColor = 0;
 
-    SetColorTimerTask(View wholeScreen) {
-
+    SetColorTimerTask(final View wholeScreen) {
         this.wholeScreen = wholeScreen;
     }
 
